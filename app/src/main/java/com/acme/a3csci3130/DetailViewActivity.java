@@ -1,6 +1,7 @@
 package com.acme.a3csci3130;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,16 +37,17 @@ public class DetailViewActivity extends Activity {
 
     public void updateContact(View v){
         //TODO: Update contact funcionality
-        String personID = receivedPersonInfo.uid;
+        String ID = receivedPersonInfo.uid;
         String name = nameField.getText().toString();
         String num = BnumberField.getText().toString();
         String Pbus = PField.getText().toString();
         String add = addressField.getText().toString();
         String pro = provienceField.getText().toString();
 
-        Contact person = new Contact(personID, num, name, Pbus, add, pro);
+        Contact person = new Contact(ID, num, name, Pbus, add, pro);
 
-        appState.firebaseReference.child(personID).setValue(person);
+        appState.firebaseReference.child(ID).setValue(person);
+        finish();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
