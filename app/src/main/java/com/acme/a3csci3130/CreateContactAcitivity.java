@@ -9,7 +9,7 @@ import android.widget.EditText;
 public class CreateContactAcitivity extends Activity {
 
     private Button submitButton;
-    private EditText nameField, emailField;
+    private EditText nameField, BnumberField, PField, addressField, provienceField;
     private MyApplicationData appState;
 
     @Override
@@ -19,17 +19,24 @@ public class CreateContactAcitivity extends Activity {
         //Get the app wide shared variables
         appState = ((MyApplicationData) getApplicationContext());
 
-        submitButton = (Button) findViewById(R.id.submitButton);
+        submitButton = (Button) findViewById(R.id.create);
         nameField = (EditText) findViewById(R.id.name);
-        emailField = (EditText) findViewById(R.id.email);
+        BnumberField = (EditText) findViewById(R.id.Bnumber);
+        PField = (EditText) findViewById(R.id.Pbusiness);
+        addressField = (EditText) findViewById(R.id.address);
+        provienceField = (EditText) findViewById(R.id.province);
     }
 
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
         String personID = appState.firebaseReference.push().getKey();
         String name = nameField.getText().toString();
-        String email = emailField.getText().toString();
-        Contact person = new Contact(personID, name, email);
+        String num = BnumberField.getText().toString();
+        String Pbus = PField.getText().toString();
+        String add = addressField.getText().toString();
+        String pro = provienceField.getText().toString();
+
+        Contact person = new Contact(personID, num, name, Pbus, add, pro);
 
         appState.firebaseReference.child(personID).setValue(person);
 
