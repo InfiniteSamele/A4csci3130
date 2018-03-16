@@ -44,7 +44,7 @@ public class DetailViewActivity extends Activity {
         String add = addressField.getText().toString();
         String pro = provienceField.getText().toString();
 
-        Contact person = new Contact(ID, num, name, Pbus, add, pro);
+        Contact person = new Contact(ID,name , num, Pbus, add, pro);
 
         appState.firebaseReference.child(ID).setValue(person);
         finish();

@@ -38,12 +38,12 @@ public class Contact implements Serializable {
     @Exclude
     public Map<String, Object> toMap(){
         HashMap<String, Object> result = new HashMap<>();
-        result.put("Uid", uid);
-        result.put("Bussiness number:", Bnumber);
-        result.put("Name:", name);
-        result.put("Primary business:", Pbusiness);
-        result.put("Address:", address);
-        result.put("Province/territory:", province);
+        result.put("uid", uid);
+        result.put("Bnumber", Bnumber);
+        result.put("name", name);
+        result.put("Pbusiness", Pbusiness);
+        result.put("address", address);
+        result.put("province", province);
 
 
         return result;

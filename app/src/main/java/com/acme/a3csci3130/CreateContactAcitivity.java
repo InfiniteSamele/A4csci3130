@@ -36,7 +36,7 @@ public class CreateContactAcitivity extends Activity {
         String add = addressField.getText().toString();
         String pro = provienceField.getText().toString();
 
-        Contact person = new Contact(personID, num, name, Pbus, add, pro);
+        Contact person = new Contact(personID, name, num, Pbus, add, pro);
 
         appState.firebaseReference.child(personID).setValue(person);
 
